@@ -247,7 +247,7 @@ function applyFilters(){
 
   filtered.slice(0,500).forEach((r,i)=>{
     const isIIC=r.src==='SR Berlin, June 2026'||r.iic_attendee;
-    const iicBadge=isIIC?'<span class="sr-badge">SR Berlin Jun'26</span>':'';
+    const iicBadge=isIIC?'<span class="sr-badge">SR Berlin Jun\'26</span>':'';
     const priority=r.priority||'';
     
     const tr=document.createElement('tr');
