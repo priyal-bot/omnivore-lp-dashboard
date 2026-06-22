@@ -106,6 +106,7 @@ a:hover{text-decoration:underline}
 </div>
 
 <div class="filters">
+  <input type="text" id="fSearch" oninput="applyFilters()" placeholder="🔍 Search by name..." style="padding:6px 12px;border-radius:6px;border:1px solid #444;background:#1a1a2e;color:#e0e0e0;font-size:13px;min-width:200px;">
   <select id="fRegion" onchange="applyFilters()">
     <option value="">All Regions</option>
     <option value="Asia-Pacific">Asia-Pacific (Other)</option>
@@ -132,6 +133,7 @@ a:hover{text-decoration:underline}
     <option value="NPM">NPM</option>
     <option value="CapitalProviders">CapitalProviders</option>
     <option value="SR Berlin, June 2026">SR Berlin, June 2026</option>
+    <option value="Existing LPs">Existing LPs</option>
   </select>
   <select id="fType" onchange="applyFilters()">
     <option value="">All Types</option>
@@ -215,8 +217,11 @@ function applyFilters(){
   const source=document.getElementById('fSource').value;
   const type=document.getElementById('fType').value;
   const minScore=parseInt(document.getElementById('fScore').value)||0;
+  const searchQ=(document.getElementById('fSearch')||{}).value||'';
+  const searchLower=searchQ.toLowerCase();
 
   let filtered=RAW.filter(r=>{
+    if(searchLower && !String(r.n||'').toLowerCase().includes(searchLower) && !String(r.c||'').toLowerCase().includes(searchLower)) return false;
     if(showGems && !r.gem) return false;
     if(showEmail && !r.em) return false;
     if(showIIC && r.src!=='SR Berlin, June 2026' && !r.iic_attendee) return false;
