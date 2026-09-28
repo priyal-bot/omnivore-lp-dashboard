@@ -79,13 +79,9 @@ a:hover{text-decoration:underline}
 </div>
 
 <div class="stats-grid">
-  <div class="stat-card" onclick="filterBySource('NPM')">
+  <div class="stat-card" onclick="applyFilters()">
     <div class="stat-num">7,981</div>
     <div class="stat-label">Total LPs</div>
-  </div>
-  <div class="stat-card" onclick="filterBySource('Impact Loop')" style="border-color:#4ade80">
-    <div class="stat-num" style="color:#4ade80">101</div>
-    <div class="stat-label">🌱 Impact Loop</div>
   </div>
   <div class="stat-card gems" onclick="toggleGems()">
     <div class="stat-num">746</div>
@@ -98,14 +94,6 @@ a:hover{text-decoration:underline}
   <div class="stat-card sea" onclick="filterByRegion('Asia-Pacific (SE Asia)')">
     <div class="stat-num">2,807</div>
     <div class="stat-label">🌏 SE Asia Focus</div>
-  </div>
-  <div class="stat-card email" onclick="toggleEmail()">
-    <div class="stat-num">597</div>
-    <div class="stat-label">📧 Has Email</div>
-  </div>
-  <div class="stat-card iic" onclick="filterBySource('SR Berlin, June 2026')">
-    <div class="stat-num" id="srBerlinCount">291</div>
-    <div class="stat-label">🗓️ SR Berlin, June 2026</div>
   </div>
 </div>
 
